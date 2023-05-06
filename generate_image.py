@@ -17,7 +17,8 @@ class GenerateImage:
         else:
             print("since you didn't choose 'black' or 'white' we'll make it white :)")
             data[:] = [0, 0, 0]
-        data[0:self.rectangle.height, 0:self.rectangle.width] = [self.rectangle.red, self.rectangle.blue, self.rectangle.green]
+        
+        data[self.rectangle.height_start:self.rectangle.height, self.rectangle.width_start:self.rectangle.width] = [self.rectangle.red, self.rectangle.blue, self.rectangle.green]
 
         img = Image.fromarray(data, 'RGB')
         img.save('canvas.png')       
